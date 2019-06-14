@@ -9,8 +9,10 @@ import Home from './components/Home'
 import SignIn from './components/user/SignIn'
 import SignUp from './components/user/SignUp'
 import CreateMeetup from './components/meetup/CreateMeetup'
-import Meetup from './components/meetup/Meetup'
+import Meetups from './components/meetup/Meetups'
 import Profile from './components/user/profile'
+import Meetup from './components/meetup/Meetup'
+import { store } from './store/'
 const router=new VueRouter({
   routes: [
     {
@@ -31,6 +33,10 @@ const router=new VueRouter({
     },
     {
       path:'/meetup',
+      component:Meetups
+    },
+    {
+      path:'/meetup/:id',
       component:Meetup
     },
     {
@@ -43,6 +49,7 @@ const router=new VueRouter({
 Vue.config.productionTip = false
 new Vue({
   router,
+  store,
   render: h => h(App),  
 }).$mount('#app')
  

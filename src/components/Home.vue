@@ -1,12 +1,18 @@
 <template>
+
     <v-container text-xs-center >
+        
             <v-layout >
-             <v-carousel>
-    <v-carousel-item
+             <v-carousel hide-delimiters>
+    <v-carousel-item style="cursor:pointer"
       v-for="i in meetups"
       :key="i.id"
-      :src="i.imageurl"
-    ></v-carousel-item>
+      :src="i.imageUrl"
+      @click="loadMeetup(i.id)"
+    >
+    <div id="div">
+        <p class="title">{{i.title}}</p>
+        </div></v-carousel-item>
   </v-carousel>
         </v-layout>
         <v-layout style="margin-top:10px" row wrap>
@@ -21,14 +27,32 @@
 </template>
 <script>
 export default {
-    data()
-    {  return{
-        meetups:[
-            {imageurl:"https://media.gettyimages.com/photos/city-life-main-bazar-paharganj-new-delhi-india-picture-id504342172?s=2048x2048",id:"vjbjccdbhbdjhkb"},
-             {imageurl:"https://d27p8o2qkwv41j.cloudfront.net/wp-content/uploads/2015/06/bangalore-e1435133401710.jpg",id:"hasdnkddfkjbkfbkjdfbk"},
-             {imageurl:"http://im.proptiger.com/6/18/92/mumbai-heroshot-image-659706.jpeg",id:"akkjfdbkbfdbbdcbdfbck"}
 
-        ]
-    }     }
-}
+       computed:{
+            meetups (){
+                return this.$store.getters.featuredMeetups
+            }
+        },
+        methods: {
+            loadMeetup(id)
+            {
+                this.$router.push('/meetup/'+id)
+            }
+        },
+    }     
 </script>
+<style scoped>
+    #div{
+      text-align: center;
+      width: auto;
+      padding: 0px auto;
+    }
+    .title {
+        margin-top: 450px;
+        font-weight: 500;
+        font-size: 30px;
+        color: white;
+       
+        
+    }
+</style>
