@@ -29,7 +29,7 @@
       </v-toolbar-items>
     </v-toolbar>
  
-<main>
+<main>          
      <router-view></router-view>
    </main>
   </v-app>

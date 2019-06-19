@@ -38,7 +38,6 @@ const router=new VueRouter({
     {
       path:'/meetup/:id',
       component:Meetup
-      ,props:true
     },
     {
       path:'/profile',

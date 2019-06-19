@@ -4,9 +4,9 @@
             <v-flex xs12>
                 <v-card>
                     <v-card-title>
-                        <h2 class="purple--text">{{meetup.title}}</h2>
+                        <h2 class="purple--text">Delhi</h2>
                     </v-card-title>
-                    <v-card-media v-bind:src='meetup.imageUrl'
+                    <v-card-media src='https://static.toiimg.com/thumb/49450573/How-to-reach-Delhi.jpg?width=748&height=499'
                     height="600px">
                     </v-card-media>
                     <v-card-text>
@@ -26,7 +26,6 @@
 </template>
 <script>
     export default {
-        props:["id"],
         computed:
             {
                 meetup(){
