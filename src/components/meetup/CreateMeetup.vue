@@ -42,7 +42,24 @@
                                </v-text-field>
                            </v-flex>
                        </v-layout>
-                <v-layout row>
+                    <v-layout class="my-3" row>
+                        <v-flex xs12 sm6 offset-sm3>
+                            <h2>Pick a Date & Time</h2>
+                        </v-flex>
+                    </v-layout>
+                    <v-layout class="my-3" >
+                        <v-flex xs12 sm6 offset-sm3>
+                            <v-date-picker v-model="date"></v-date-picker>
+                            <p>{{date}}</p>
+                        </v-flex>
+                    </v-layout>
+<!--                    <v-layout class="my-3" >-->
+<!--                        <v-flex xs12 sm6 offset-sm3>-->
+<!--                            <v-time-picker v-model="time"></v-time-picker>-->
+<!--                            <p>{{time}}</p>-->
+<!--                        </v-flex>-->
+<!--                    </v-layout>-->
+                    <v-layout row>
                     <v-flex xs12 sm6 offset-sm3>
                         <v-spacer></v-spacer>
                     <v-btn
@@ -62,7 +79,9 @@
                 title:'',
                 location:'',
                 imageUrl:'',
-                description:''
+                description:'',
+                date: '',
+                // time: ''
             }
 
         },
@@ -74,6 +93,19 @@
                 this.description===''
             }
         },
+        // validDate(){
+        //     const date=new Date(this.date)
+        //     if (typeof this.time==='string')
+        //     {
+        //         const hours=this.time.match(/^(\d+)/)[1]
+        //         const minutes=this.time.match(/:(\d+)/)[1]
+        //         date.setHours(hours)
+        //         date.getMinutes(minutes)
+        //     }
+        //     date.setHours(this.time.getHours())
+        //     date.setMinutes(this.date.getMinutes())
+        //     return date
+        // },
         methods:{
             onCreateMeetup()
             {
@@ -82,9 +114,10 @@
                     description: this.description,
                     location: this.location,
                     imageUrl: this.imageUrl,
-                    date:new Date()
+                    date:this.date
                 }
-                this.$store.dispatch('createMeetup',values)
+                this.$store.dispatch('createMeetup', values)
+                this.$router.push('/meetup')
             }
         }
 

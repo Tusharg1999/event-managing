@@ -23,19 +23,20 @@ export const store = new Vuex.Store({
         }
     },
     mutations: {
-        createMeetup(state,payload){
-            state.loadedMeetups.push(payload)
+      createMeetup:(state,payload)=>{
+          state.loadedMeetups.push(payload)
         }
     },
     actions: {
-        createMeetup({commit},payload)
-        {const meetup={
-            title:payload.title,
-            imageUrl:payload.imageUrl,
-            location:payload.location
-        }
-        commit("createMeetup",meetup)
-        }
+       createMeetup:(context,payload)=>
+       { const data={
+           title: payload.title,
+           imageUrl: payload.imageUrl,
+           location: payload.location,
+           date:payload.date
+       }
+       context.commit("createMeetup",data)
+       }
     },
     getters: {
         loadedMeetups(state) {
