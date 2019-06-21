@@ -13,6 +13,9 @@ import Meetups from './components/meetup/Meetups'
 import Profile from './components/user/profile'
 import Meetup from './components/meetup/Meetup'
 import { store } from './store/'
+import * as firebase from 'firebase'
+import DateFilter from './filter/dateFilter'
+import TimeFilter from './filter/timeFilter'
 const router=new VueRouter({
   routes: [
     {
@@ -46,10 +49,18 @@ const router=new VueRouter({
   ],
   mode:'history'
 })
+Vue.filter('date',DateFilter)
+Vue.filter('time',TimeFilter)
+
 Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App),  
+  render: h => h(App),
+  created(){
+  firebase.initializeApp({
+
+  })
+  }
 }).$mount('#app')
  

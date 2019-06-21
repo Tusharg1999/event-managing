@@ -14,8 +14,10 @@
                 <v-flex xs6 md8 sm7>
                     <div  class="ml-5">
                         <h1>{{i.title}}</h1>
-                        <p>{{i.date}}</p>
-                        </div>
+                        <p>Date: {{i.date |date}}</p>
+                        <p>Time: {{ i.time}}</p>
+
+                    </div>
                         <div>
                             <v-btn v-bind:to="'/meetup/'+i.id" dark="" flat="" class="red darken-1 ml-5"><v-icon class="mr-2">arrow_forward</v-icon>View Meetup</v-btn>
                         </div>

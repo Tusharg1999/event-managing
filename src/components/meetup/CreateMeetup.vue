@@ -53,12 +53,12 @@
                             <p>{{date}}</p>
                         </v-flex>
                     </v-layout>
-<!--                    <v-layout class="my-3" >-->
-<!--                        <v-flex xs12 sm6 offset-sm3>-->
-<!--                            <v-time-picker v-model="time"></v-time-picker>-->
-<!--                            <p>{{time}}</p>-->
-<!--                        </v-flex>-->
-<!--                    </v-layout>-->
+                    <v-layout class="my-3" >
+                        <v-flex xs12 sm6 offset-sm3>
+                            <v-time-picker v-model="time"></v-time-picker>
+                            <p>{{time}}</p>
+                        </v-flex>
+                    </v-layout>
                     <v-layout row>
                     <v-flex xs12 sm6 offset-sm3>
                         <v-spacer></v-spacer>
@@ -81,7 +81,7 @@
                 imageUrl:'',
                 description:'',
                 date: '',
-                // time: ''
+                time: ''
             }
 
         },
@@ -114,7 +114,8 @@
                     description: this.description,
                     location: this.location,
                     imageUrl: this.imageUrl,
-                    date:this.date
+                    date:this.date,
+                    time: this.time
                 }
                 this.$store.dispatch('createMeetup', values)
                 this.$router.push('/meetup')

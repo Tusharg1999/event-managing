@@ -9,13 +9,15 @@ export const store = new Vuex.Store({
             imageUrl: 'https://static.toiimg.com/thumb/49450573/How-to-reach-Delhi.jpg?width=748&height=499',
             id: 'meetupid_delhi',
             title: 'Meetup in delhi',
-            date: "14 June 2019"
+            date: new Date(),
+            time:new Date()
         },
             {
                 imageUrl: 'https://ramadalucknow.com/wp-content/uploads/2017/11/Exploring-Spiritual-Tourism-in-India-The-Uttar-Pradesh-Sojourn.jpg',
                 id: 'meetupid_up',
                 title: 'Meetup in UP',
-                date: "15 June 2019"
+                date: new Date(),
+                time:new Date()
             }],
         user: {
             id: 'aman',
@@ -33,7 +35,8 @@ export const store = new Vuex.Store({
            title: payload.title,
            imageUrl: payload.imageUrl,
            location: payload.location,
-           date:payload.date
+           date:payload.date,
+           time:payload.time
        }
        context.commit("createMeetup",data)
        }
