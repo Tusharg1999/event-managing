@@ -10,7 +10,7 @@ export const store = new Vuex.Store({
             id: 'meetupid_delhi',
             title: 'Meetup in delhi',
             date: new Date(),
-            time:new Date()
+            time:new Date( )
         },
             {
                 imageUrl: 'https://ramadalucknow.com/wp-content/uploads/2017/11/Exploring-Spiritual-Tourism-in-India-The-Uttar-Pradesh-Sojourn.jpg',

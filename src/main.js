@@ -59,7 +59,11 @@ new Vue({
   render: h => h(App),
   created(){
   firebase.initializeApp({
-
+    apiKey: "AIzaSyBZ_Fq5YCt4JYUGdfIN3Y5JMBVhc3cfpPc",
+    authDomain: "event-manager-81765.firebaseapp.com",
+    databaseURL: "https://event-manager-81765.firebaseio.com",
+    projectId: "event-manager-81765",
+    storageBucket: ""
   })
   }
 }).$mount('#app')
