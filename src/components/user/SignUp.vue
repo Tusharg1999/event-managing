@@ -6,7 +6,7 @@
                     <v-card-title><h1>Create New Account</h1></v-card-title>
                     <v-container>
                         <v-flex md12>
-                    <form>
+                    <form @submit.prevent="onSignUp">
                         <v-text-field class="my-2"
                                       id="email"
                                       label="Email"
@@ -32,7 +32,7 @@
                                 :rules="[checkForPassword]"
                                       required>
                         </v-text-field>
-                        <v-btn block>SignUp</v-btn>
+                        <v-btn @click="onSignUp" block>SignUp</v-btn>
                     </form>
                         </v-flex>
                     </v-container>
@@ -50,6 +50,23 @@
                confirm_password:''
                }
            },
+        methods:{
+            onSignUp(){
+                this.$store.dispatch('createNewUser',{email:this.email,password:this.password})
+
+            },
+            user:()=>{
+              return this.$store.getters.user
+    }
+        },
+        watch:{
+            user(value){
+                if (value!==null && value!==undefined)
+                {
+                    this.$router.push('/')
+                }
+            }
+        },
            computed:
                {
                    checkForPassword(){
